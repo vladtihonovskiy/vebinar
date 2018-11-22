@@ -14,6 +14,7 @@ class RectangleWithState extends Component {
 	}
 
 	componentDidMount() {
+		debugger;
 		const { textProps } = this.props;
 
 		if(textProps) {
@@ -31,6 +32,7 @@ class RectangleWithState extends Component {
 
 	render() {
 		const { backgroundColor, text } = this.state;
+		debugger;
 		return(
 			<div
 				className={"rectangle_with_state"} style={{backgroundColor}}>

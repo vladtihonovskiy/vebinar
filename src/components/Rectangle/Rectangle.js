@@ -16,12 +16,16 @@ class Rectangle extends Component {
 	render() {
 		const { text, style } = this.props;
 
+		console.log(this.props);
+
 		return(
 			<div
 				style={style}
 				className={"rectangle"}>
 
 				<p>{text}</p>
+
+				{this.props.children}
 			</div>
 		)
 	}

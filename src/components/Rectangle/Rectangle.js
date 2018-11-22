@@ -20,6 +20,7 @@ class Rectangle extends Component {
 			<div
 				style={style}
 				className={"rectangle"}>
+
 				<p>{text}</p>
 			</div>
 		)

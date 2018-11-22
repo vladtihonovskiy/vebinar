@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { string} from "prop-types";
+import { string, object } from "prop-types";
 
 import "./Rectangle.css";
 
 class Rectangle extends Component {
 	static propTypes = {
-		text: string
+		text: string,
+		style: object
 	}
 
 	static defaultProps = {
@@ -13,10 +14,12 @@ class Rectangle extends Component {
 	}
 
 	render() {
-		const { text } = this.props;
+		const { text, style } = this.props;
 
 		return(
-			<div className="rectangle">
+			<div
+				style={style}
+				className={"rectangle"}>
 				<p>{text}</p>
 			</div>
 		)

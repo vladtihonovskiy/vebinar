@@ -7,6 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <Rectangle text={"Привет"}/>
+        <Rectangle text={"Привет"} style={{backgroundColor: "yellow", width: "500px"}}/>
       </div>
     );
   }

@@ -13,3 +13,7 @@
 .rectangle p {
     margin: 0;
 }
+
+.color {
+    background-color: red;
+}

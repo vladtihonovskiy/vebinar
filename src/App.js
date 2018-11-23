@@ -4,9 +4,20 @@ import RectangleWithState from "./components/RectangleWithState/RectangleWithSta
 import Circle from "./components/Circle/Circle";
 import './App.css';
 
+function check() {
+	let a = 15;
+	console.log(a);
+	function checkVariable() {
+		 console.log(a);
+	}
+	checkVariable();
+}
+
 class App extends Component {
 
   render() {
+
+	  check();
     return (
       <div className="App">
         <Rectangle text={"Привет"} style={{backgroundColor: "yellow", width: "500px"}} >

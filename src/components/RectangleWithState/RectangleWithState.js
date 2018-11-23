@@ -14,7 +14,6 @@ class RectangleWithState extends Component {
 	}
 
 	componentDidMount() {
-		debugger;
 		const { textProps } = this.props;
 
 		if(textProps) {
@@ -25,6 +24,8 @@ class RectangleWithState extends Component {
 	}
 
 	onChangeInput = (event) => {
+		// console.dir(event.target);
+		// console.log(this);
 		this.setState({
 			[event.target.name]: event.target.value
 		})
@@ -32,7 +33,9 @@ class RectangleWithState extends Component {
 
 	render() {
 		const { backgroundColor, text } = this.state;
-		debugger;
+
+		// console.log(`text = ${text};`);
+
 		return(
 			<div
 				className={"rectangle_with_state"} style={{backgroundColor}}>

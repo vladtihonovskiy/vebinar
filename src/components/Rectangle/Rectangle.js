@@ -5,8 +5,9 @@ import "./Rectangle.css";
 
 class Rectangle extends Component {
 	static propTypes = {
-		text: string,
-		style: object
+		children: object,
+		style: object,
+		text: string
 	}
 
 	static defaultProps = {
@@ -18,16 +19,17 @@ class Rectangle extends Component {
 
 		console.log(this.props);
 
-		return(
+		return (
 			<div
 				style={style}
-				className={"rectangle"}>
+				className={"rectangle"}
+			>
 
 				<p>{text}</p>
 
 				{this.props.children}
 			</div>
-		)
+		);
 	}
 }
 

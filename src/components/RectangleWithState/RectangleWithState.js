@@ -1,3 +1,4 @@
+/* eslint-disable react/no-did-mount-set-state */
 import React, { Component } from "react";
 import { string } from "prop-types";
 
@@ -16,10 +17,10 @@ class RectangleWithState extends Component {
 	componentDidMount() {
 		const { textProps } = this.props;
 
-		if(textProps) {
+		if (textProps) {
 			this.setState({
 				text: textProps
-			})
+			});
 		}
 	}
 
@@ -28,7 +29,7 @@ class RectangleWithState extends Component {
 		// console.log(this);
 		this.setState({
 			[event.target.name]: event.target.value
-		})
+		});
 	}
 
 	render() {
@@ -36,15 +37,16 @@ class RectangleWithState extends Component {
 
 		// console.log(`text = ${text};`);
 
-		return(
+		return (
 			<div
-				className={"rectangle_with_state"} style={{backgroundColor}}>
-				<input value={text} onChange={this.onChangeInput} name="text" type="text"/>
-				<input onChange={this.onChangeInput} name="backgroundColor" type="color"/>
+				className={"rectangle_with_state"} style={{ backgroundColor }}
+			>
+				<input value={text} onChange={this.onChangeInput} name="text" type="text" />
+				<input onChange={this.onChangeInput} name="backgroundColor" type="color" />
 
 				<p>{ text }</p>
 			</div>
-		)
+		);
 	}
 }
 

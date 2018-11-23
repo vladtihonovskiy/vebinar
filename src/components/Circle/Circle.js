@@ -3,11 +3,11 @@ import "./Circle.css";
 
 class Circle extends Component {
 	render() {
-		return(
+		return (
 			<div className={"circle"}>
 				{this.props.children}
 			</div>
-		)
+		);
 	}
 }
 

@@ -1,32 +1,68 @@
 import React, { Component } from 'react';
-import Rectangle from "./components/Rectangle/Rectangle";
-import RectangleWithState from "./components/RectangleWithState/RectangleWithState";
-import Circle from "./components/Circle/Circle";
+import { Switch, Route, withRouter } from 'react-router-dom';
+
+import MainListPage from "./containers/MainListPage/MainListPage";
+import SingleItem from "./containers/SingleItem/SingleItem";
 import './App.css';
 
-function check() {
-	const a = 15;
-	console.log(a);
-	function checkVariable() {
-		console.log(a);
-	}
-	checkVariable();
-}
-
 class App extends Component {
+	state = {
+		list: []
+	}
+
+	componentDidMount() {
+		this.setState({
+			list: JSON.parse(localStorage.getItem(("list")) || [])
+		});
+	}
+
+	componentDidUpdate() {
+		localStorage.setItem("list", JSON.stringify(this.state.list));
+	}
+
+	onAddNewListItem = (value) => {
+		this.setState({
+			list: [...this.state.list, value]
+		});
+	}
+
+	onDeleteListItem = (id) => {
+		const remainder = this.state.list.filter((todo) => {
+			if (todo.id !== id) {
+				return todo;
+			}
+		});
+
+		this.setState({
+			list: remainder
+		});
+	}
+
+	onChangeListItem = (id, value) => {
+		const changeItem = this.state.list.filter((todo) => {
+			if (todo.id == id) {
+				todo.color = value.color;
+				todo.text = value.text;
+				return todo;
+			}
+			return todo;
+		});
+
+		this.setState({
+			list: changeItem
+		});
+	}
+
 	render() {
-		check();
 		return (
 			<div className="App">
-				<Rectangle text={"Привет"} style={{ backgroundColor: "yellow", width: "500px" }} >
-					<Circle >
-						<p>React</p>
-					</Circle>
-				</Rectangle>
-				<RectangleWithState textProps={"first"} />
+				<Switch>
+					<Route exact path="/" render={() => <MainListPage list={this.state.list} onAddNewListItem={this.onAddNewListItem} onDeleteListItem={this.onDeleteListItem} />} />
+					<Route path="/listItem/:id" render={(props) => <SingleItem list={this.state.list} onChangeListItem={this.onChangeListItem} {...props} />} />
+				</Switch>
 			</div>
 		);
 	}
 }
 
-export default App;
+export default withRouter(App);

@@ -1,0 +1,27 @@
+.controls-wrapper {
+    text-align: center;
+    width: 100%;
+}
+
+.item-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 150px;
+    max-width: 150px;
+    padding: 5px;
+    margin: 10px;
+    background-color: chocolate;
+}
+
+.item-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
